@@ -4,21 +4,18 @@ public class Program
 {
     public static void Main()
     {
-        double S1=0;
-        double S2=0;
-        double x=0.9;
-        for (int n=1; n<=10000; n++)
+        double x = 0.5;
+        double e = 0.0001;
+        double sum = 1.0;
+        double term = 1.0;
+        int n = 2;
+        double q = x * x;
+        while (Math.Abs(term) >= e)
         {
-            S1 += Math.Pow(x, n*2);
-            if (Math.Pow(x, n*2)>=0.0001)
-            {
-                S2=S1;
-            }
-            if (Math.Pow(x, n*2)<0.0001)
-            {
-                Console.WriteLine(S2);
-                break;
-            }
+            sum += term;
+            term *= q;
+            n += 2;
         }
+        Console.WriteLine(sum);
     }
 }
