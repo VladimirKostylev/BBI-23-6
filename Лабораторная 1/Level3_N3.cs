@@ -20,14 +20,14 @@ class Program
             }
             for (double x = a; x <= b; x += h)
             {
-                sum += 1 + Math.Cos(i * x) / F;
+                sum += last_number;
                 y = Math.Exp(Math.Cos(x)) * Math.Cos(Math.Sin(x));
+                Console.WriteLine($"{sum} {y}");
                 last_number = 1 + Math.Cos(i * x) / F;
 
             }
             if (Math.Abs(last_number) < 0.0001)
             {
-                Console.WriteLine($"{sum} {y}");
                 break;
             }
         }
