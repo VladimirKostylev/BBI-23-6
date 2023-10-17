@@ -22,12 +22,12 @@ class Program
             {
                 sum += 1 + Math.Cos(i * x) / F;
                 y = Math.Exp(Math.Cos(x)) * Math.Cos(Math.Sin(x));
-                Console.WriteLine($"{sum} {y}");
                 last_number = 1 + Math.Cos(i * x) / F;
 
             }
             if (Math.Abs(last_number) < 0.0001)
             {
+                Console.WriteLine($"{sum} {y}");
                 break;
             }
         }
