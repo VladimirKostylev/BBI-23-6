@@ -1,35 +1,29 @@
 using System;
 
-class Program
+class HelloWorld
 {
     static void Main()
     {
-        double a = 0.1;
-        double b = 1;
-        double h = 0.1;
-        double sum = 0;
-        double y = 0;
-        double last_number = 0;
-        int F;
-        for (int i = 1; i < 10000; i++)
-        {
-            F = i;
-            for (int n = 1; n <= F; n++)
-            {
-                F *= n;
-            }
-            for (double x = a; x <= b; x += h)
-            {
-                sum += last_number;
-                y = Math.Exp(Math.Cos(x)) * Math.Cos(Math.Sin(x));
-                Console.WriteLine($"{sum} {y}");
-                last_number = 1 + Math.Cos(i * x) / F;
+        const double a = 0.1, b = 1, h = 0.1, LIMIT = 0.0001;
+        int i;
+        double s, term;
 
-            }
-            if (Math.Abs(last_number) < 0.0001)
+        for (double x = a; x <= b; x += h)
+        {
+            i = 1;
+            s = 1;
+            int factorial = 1;
+            do
             {
-                break;
-            }
+                factorial *= i;
+                term = Math.Cos(i * x) / factorial;
+                s += term;
+                i++;
+            } while (Math.Abs(term) >= LIMIT);
+
+            double y = Math.Exp(Math.Cos(x)) * Math.Cos(Math.Sin(x));
+
+            Console.WriteLine($"x: {x}, s: {s}, y: {y}\n");
         }
     }
 }
