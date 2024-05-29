@@ -29,7 +29,7 @@ class Task_2 : Task
     }
     protected override void ParseText()
     {
-        text = Code(text);
+        text = "Закодированный текст:\n" + Code(text) + "\nРаскодированный текст:\n" + Code(Code(text));
     }
     protected string Code(string text)
     {
